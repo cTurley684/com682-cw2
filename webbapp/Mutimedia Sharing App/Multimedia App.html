@@ -1,0 +1,187 @@
+<!doctype html>
+<html lang="en" ng-app="Dashboard">
+  <head>
+    <meta charset="UTF-8">
+
+    <title>Multimedia Sharing Web Application</title>
+
+    <link rel="stylesheet" type="text/css" href="CSS/bootstrap.min.css">
+    <style>
+      /* Custom grid for image/video cards */
+      #ImageList.media-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+        gap: 16px;
+        align-items: start;
+      }
+
+      .media-card {
+        border: 1px solid #e5e7eb;
+        border-radius: 12px;
+        overflow: hidden;
+        box-shadow: 0 1px 3px rgba(0,0,0,.06);
+        background: #fff;
+      }
+
+      .media-thumb {
+        width: 100%;
+        height: 180px;
+        background: #f3f4f6;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+      }
+
+      .media-thumb img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+      }
+
+      .media-body {
+        padding: 10px 12px;
+        font-size: 13px;
+        line-height: 1.35;
+      }
+
+      .media-title {
+        display: block;
+        margin-bottom: 6px;
+        font-weight: 600;
+        font-size: 14px;
+        color: #111827;
+        word-break: break-word;
+      }
+
+      .video-link {
+        display: inline-block;
+        padding: 8px 10px;
+        border-radius: 8px;
+        background: #eef2ff;
+        color: #3730a3;
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 13px;
+      }
+
+      .image-error {
+        color: #b91c1c;
+        font-size: 12px;
+        padding: 8px 12px 0;
+        display: none;
+      }
+    </style>
+
+    <script type="text/javascript" src="JS/bootstrap.js"></script>
+    <script type="text/javascript" src="JS/bootstrap.bundle.min.js"></script>
+    <script type="text/javascript" src="JS/jquery-3.6.0.min.js"></script>
+
+    <!-- IMPORTANT: config.js before app.js -->
+    <script type="text/javascript" src="JS/config.js"></script>
+    <script type="text/javascript" src="JS/app.js"></script>
+  </head>
+
+  <body>
+    <div class="container">
+
+      <!--Header-->
+      <div class="row align-items-start">
+        <div class="col-2"></div>
+        <div class="col-8" style="text-align: center;">
+          <h3>Multimedia Sharing Web Application</h3>
+        </div>
+        <div class="col-2"></div>
+      </div>
+
+      <!--New Asset Box-->
+      <div class="row align-items-start">
+        <div class="col-2"></div>
+
+        <div class="col-8" style="text-align: left;border-bottom:1px solid #222222;">
+          <p>Add Image</p>
+
+      <form style="font-size: 10pt;" id="newAssetForm">
+
+        <div class="mb-3">
+          <label for="ItemId" class="form-label">ID (leave blank to auto-generate)</label>
+          <input type="text" class="form-control" id="ItemId">
+        </div>
+
+        <div class="mb-3">
+          <label for="UserId" class="form-label">User ID (optional)</label>
+          <input type="text" class="form-control" id="UserId">
+        </div>
+
+        <div class="mb-3">
+          <label for="Title" class="form-label">Title</label>
+          <input type="text" class="form-control" id="Title">
+        </div>
+
+        <div class="mb-3">
+          <label for="Description" class="form-label">Description</label>
+          <textarea class="form-control" id="Description" rows="3"></textarea>
+        </div>
+
+        <div class="mb-3">
+          <label for="Tags" class="form-label">Tags (comma separated)</label>
+          <input type="text" class="form-control" id="Tags" placeholder="maintenance, gate, vet">
+        </div>
+
+        <div class="mb-3">
+          <label for="UpFilFe" class="form-label">File to Upload</label>
+          <input type="file" class="form-control" id="UpFile">
+        </div>
+
+        <button type="button" id="subNewForm" class="btn btn-primary">Submit</button>
+        <br/><br/>
+      </form>
+
+        </div>
+
+        <div class="col-2"></div>
+      </div>
+
+      <!-- view Asset Area-->
+      <div class="row align-items-start">
+        <div class="col-2"></div>
+
+        <div class="col-8" style="text-align: left;" >
+          <div style="padding:5px;">
+            <button id="retImages" type="button" class="btn btn-primary">View Media Items</button>
+          </div>
+
+          <!-- NEW: Get-by-ID + Delete controls -->
+          <hr />
+          <div class="row g-2 align-items-center" style="padding:5px;">
+            <div class="col-md-4">
+              <input id="getId" class="form-control" placeholder="Enter ID to Get (e.g. 1)">
+            </div>
+            <div class="col-md-2">
+              <button id="btnGetById" type="button" class="btn btn-outline-primary w-100">Get by ID</button>
+            </div>
+
+            <div class="col-md-4">
+              <input id="delId" class="form-control" placeholder="Enter ID to Delete (e.g. 1)">
+            </div>
+            <div class="col-md-2">
+              <button id="btnDelete" type="button" class="btn btn-outline-danger w-100">Delete</button>
+            </div>
+          </div>
+
+          <!-- Optional status line for messages -->
+          <div id="status" style="padding:5px; font-weight:600;"></div>
+
+          <!-- Add class so your grid CSS works -->
+          <div id="ImageList" class="media-grid">
+            <h4>Please click the view Images button if you wish to view images on the system.</h4>
+          </div>
+        </div>
+
+        <div class="col-2"></div>
+      </div>
+
+    </div>
+  </body>
+</html>

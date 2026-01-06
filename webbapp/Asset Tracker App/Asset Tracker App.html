@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="en" ng-app="Dashboard">
+  <head>
+    <meta charset="UTF-8">
+
+    <title>Asset Tracker Web Application</title>
+
+      <link rel="stylesheet" type="text/css" href="CSS/bootstrap.min.css">
+      <script type="text/javascript" src="JS/bootstrap.js"></script>
+      <script type="text/javascript" src="JS/bootstrap.bundle.min.js"></script>
+      <script type="text/javascript" src="JS/jquery-3.6.0.min.js"></script>
+
+      <script type="text/javascript" src="JS/app.js"></script>
+
+  </head>
+  
+  <body>
+
+    <div  class="container">
+
+        <!--Header-->
+        <div class="row align-items-start">
+            <div class="col-2"  ></div>
+
+            <div class="col-8" style="text-align: center;">
+              <h3>Asset Tracker Web Application</h3>
+            </div>
+
+            <div class="col-2"  ></div>
+        </div>
+
+        <!--New Asset Box-->
+        <div class="row align-items-start">
+            <div class="col-2"  ></div>
+
+            <div class="col-8" style="text-align: left;border-bottom:1px solid #222222;">
+              <p>Add Asset</p>
+
+              <form style="font-size: 10pt;" id="newAssetForm">
+                <div class="mb-3">
+                  <label for="AssetLabel" class="form-label">Asset Label</label>
+                  <input type="text" class="form-control" id="AssetLabel">
+                </div>
+
+                <div class="mb-3">
+                  <label for="Cost" class="form-label">Cost</label>
+                  <input type="number" class="form-control" id="Cost">
+                </div>
+
+                <div class="mb-3">
+                  <label for="AssetType" class="form-label">Asset Type</label>
+                  <input type="text" class="form-control" id="AssetType">
+                </div>
+
+                <div class="mb-3">
+                  <label for="NameOfOwner" class="form-label">Name of Owner</label>
+                  <input type="text" class="form-control" id="NameOfOwner">
+                </div>
+
+                <div class="mb-3">
+                  <label for="AssetLabel" class="form-label">Asset Label</label>
+                  <input type="text" class="form-control" id="AssetLabel">
+                </div>
+
+                <div class="mb-3">
+                  <label for="AddressLine1" class="form-label">Address Line 1</label>
+                  <input type="text" class="form-control" id="AddressLine1">
+                </div>
+
+                <div class="mb-3">
+                  <label for="AddressLine2" class="form-label">Address Line 2</label>
+                  <input type="text" class="form-control" id="AddressLine2">
+                </div>
+
+                <div class="mb-3">
+                  <label for="Note" class="form-label">Note</label>
+                  <input type="text" class="form-control" id="Note">
+                </div>
+            
+                <button type="button" id="subNewForm" class="btn btn-primary">Submit</button> <br/><br/>
+                
+              </form>
+            </div>
+
+            <div class="col-2"  ></div>
+        </div>
+
+        <!-- view Asset Area-->
+        <div class="row align-items-start">
+            <div class="col-2"  ></div>
+
+            <div class="col-8" style="text-align: left;" >
+              <div style="padding:5px;">
+                <button  id = "retAssets" type="button" class="btn btn-primary">View Assets</button>
+              </div>
+
+              <div id="AssetList">
+
+                <h4>Please click the view Assets button if you wish to view assets on the system.</h4>
+
+              </div>
+            </div>
+
+            <div class="col-2"  ></div>
+        </div>
+
+    </div>
+  
+  </body>
+</html>
